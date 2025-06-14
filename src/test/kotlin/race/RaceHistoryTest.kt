@@ -17,6 +17,8 @@ class RaceHistoryTest {
             )
         )
         val winner = history.winner()
-        assertThat(winner.size).isEqualTo(2)
+        assertThat(winner).hasSize(2)
+            .extracting<String> { it.carName }
+            .containsExactly("B", "C");
     }
 }

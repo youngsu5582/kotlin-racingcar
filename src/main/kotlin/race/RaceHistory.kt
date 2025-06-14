@@ -8,8 +8,10 @@ data class RaceHistory(
     val carHistory: List<CarHistory>
 ) {
     fun winner(): List<CarHistory> {
-        val maxPosition = carHistory.maxOf { it.carPosition }
-        return carHistory.filter { it.carPosition == maxPosition }
+        if (carHistory.isEmpty()) return emptyList()
+        // maxOf would raise NoSuchElementException when collection is empty
+        val maxPosition = carHistory.maxOf { it.position }
+        return carHistory.filter { it.position == maxPosition }
     }
 
     fun isFinished() = finished

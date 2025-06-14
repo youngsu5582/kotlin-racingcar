@@ -24,7 +24,7 @@ class CarTest {
     fun `moved with Engine`(flag: Boolean, position: Int) {
         val car = Car("car", FixedEngine(flag), Position(0))
         val result = car.move()
-        assertThat(result.carPosition).isEqualTo(position)
+        assertThat(result.position).isEqualTo(position)
     }
 }
 

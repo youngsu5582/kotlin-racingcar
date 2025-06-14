@@ -15,7 +15,7 @@ data class Car(
         .also { moved ->
             if (moved) {
                 position.forward()
-                log.debug { "$name moved success!(position: $position" }
+                log.debug { "$name moved success! (position: $position)" }
             }
         }
         .let { current() }

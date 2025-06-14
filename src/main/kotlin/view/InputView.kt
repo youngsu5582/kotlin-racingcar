@@ -9,13 +9,19 @@ object InputView {
 
     fun readCars(): Cars {
         println("Please Input Car Names (EX: Car1,Car2,Car3)")
-        val input = SCANNER.readLine()
+        val input = readLine()
         return Cars(input.split(",").map { Car(it) })
     }
 
     fun readRaceCount(): RaceCount {
         println("Please Input Race Count (EX: 5)")
-        val input = SCANNER.readLine()
-        return RaceCount(input.toInt())
+        val input = readLine()
+        return RaceCount(
+            input.toIntOrNull()
+                ?: throw IllegalArgumentException("Invalid Race Count. Input: $input")
+        )
     }
+
+    private fun readLine() =
+        SCANNER.readLine()?.trim() ?: throw IllegalArgumentException("Input is Null")
 }

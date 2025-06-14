@@ -21,7 +21,7 @@ object OutputView {
 
     private fun printCarHistory(carHistories: List<CarHistory>) {
         carHistories.forEach {
-            println("${it.carName} : ${it.carPosition}")
+            println("${it.carName} : ${it.position}")
         }
     }
 
